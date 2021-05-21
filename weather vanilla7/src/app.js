@@ -10,7 +10,7 @@ function formatDate(timestamp) {
     }
     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     let day = days[date.getDay()];
-    return `${day} ${hours} ${minutes}`;
+    return `${day} ${hours}:${minutes}`;
 }
 
 function displayTemperature(response) {
@@ -44,7 +44,14 @@ function handleSubmit(event) {
     search(cityInputElement.value);
 }
 
+function displayFahrenheitTemperature(event) {
+    event.preventDefault();
+}
+
 search("New York");
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
